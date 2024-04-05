@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4257bea988948364dbde822f4f3e03e0, type: 3}
+  m_Name: question
+  m_EditorClassIdentifier: 
+  questionnaires:
+  - QuestionnaireTitle: pandas
+    type: 0
+    questions:
+    - questionTitle: Do you love me?
+      options:
+      - weak
+      - middle
+      - strong
+    - questionTitle: Do you love football?
+      options:
+      - weak
+      - middle
+      - strong
+    - questionTitle: Do you love Ipad?
+      options:
+      - weak
+      - middle
+      - strong
+    - questionTitle: Do you love Ipad?
+      options:
+      - weak
+      - middle
+      - strong
+    - questionTitle: Do you love Ipad?
+      options:
+      - weak
+      - middle
+      - strong
+    - questionTitle: Do you love Ipad?
+      options:
+      - weak
+      - middle
+      - strong
+  - QuestionnaireTitle: decision
+    type: 2
+    questions:
+    - questionTitle: Do you like me?
+      options:
+      - yes
+      - yes
+      - yes
+      - yes
+    - questionTitle: Do you like he?
+      options:
+      - no
+      - tes
+      - no
+      - tes
+      - yes
+    - questionTitle: Do you like her?
+      options:
+      - yes
+      - yes
+      - yesy
+      - yes
+      - yes
+      - yes
+  - QuestionnaireTitle: decision
+    type: 1
+    questions:
+    - questionTitle: Do you like mengmeng?
+      options:
+      - yes
+      - yes
+      - yes
+      - yes
+  - QuestionnaireTitle: decisionl;kkl
+    type: 0
+    questions:
+    - questionTitle: Do you like mengmeng?
+      options:
+      - yes
+      - yes
+      - yes
+      - yes
+      - yes
+    - questionTitle: Do you like mengmeng?
+      options:
+      - yes
+      - yes
+      - yes
+      - yes
+      - yes
+      - yes
