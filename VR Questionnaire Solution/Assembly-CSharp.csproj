@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\New\QuestionnaireGen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\New\CSVManager.cs" />
     <Compile Include="Assets\Scripts\PanasPanel.cs" />
     <Compile Include="Assets\Scripts\New\QuestionPanel_Select.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />

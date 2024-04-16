@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
+
 
 public class QuestionnaireGen : MonoBehaviour
 {
 
     public QuestionnaireConfiguration questionnaireConfiguration; // Assigned from the editor
+
+    public GameObject questionnaire_Completion_Instruction;
 
     public GameObject questionPanelPrefab_likert;
     public GameObject questionPanelPrefab_singleSelect;
@@ -23,68 +27,52 @@ public class QuestionnaireGen : MonoBehaviour
     public Button previousButton;
     public Button submitButton;
     int questionNumber = 1;
-
     int currentPage=1;
 
-    //GameObject[] questionPanel=new GameObject();
+   float  flashDuration=0.15f;
+   public Color flashColorForUnansweredQuestion=Color.red;
 
     List<GameObject> questionPanels = new List<GameObject>();
 
     void Start()
-    {
-        //InitializeDataStorageDictionary();
-
-        /*
-        LoadQuestionnaire();
-        nextButton.onClick.AddListener(NextButtonPressed);
-        previousButton.onClick.AddListener(PreviousButtonPressed);
-        submitButton.onClick.AddListener(SubmitButtonPressed);
-        submitButton.gameObject.SetActive(false); // Initially hide submit button
-        previousButton.gameObject.SetActive(false); // Initially hide previous button
-        */
-        
+    {       
         LoadQuestionPrefabIntoQuestionList();
         AssignPageNumberToQuestionPrefab();
         test();
         DisplayFirstPageQuestions();
-
-
 
         nextButton.onClick.AddListener(NextButtonPressed);
         previousButton.onClick.AddListener(PreviousButtonPressed);
         submitButton.onClick.AddListener(SubmitButtonPressed);
         submitButton.gameObject.SetActive(false); // Initially hide submit button
         previousButton.gameObject.SetActive(true); // Initially hide previous button
-
-
-
     }
 
     private void test()
     {
         foreach (var item in questionPanels)
         {
-            Debug.Log("×ÜIndex" + item.GetComponent<QuestionPanel>().QuestionIndex + "ËùÊôÎÊ¾í±àºÅ" + item.GetComponent<QuestionPanel>().QuestionnaireIndex + "ËùÊôÎÊ¾íÀàĞÍ" + item.GetComponent<QuestionPanel>().questionnaireType + "ËùÊôÒ³Âë" + item.GetComponent<QuestionPanel>().PageIndex);
+            Debug.Log("æ€»Index" + item.GetComponent<QuestionPanel>().QuestionIndex + "æ‰€å±é—®å·ç¼–å·" + item.GetComponent<QuestionPanel>().QuestionnaireIndex + "æ‰€å±é—®å·ç±»å‹" + item.GetComponent<QuestionPanel>().questionnaireType + "æ‰€å±é¡µç " + item.GetComponent<QuestionPanel>().PageIndex);
         }
 
     }
 
-    private void InitializeDataStorageDictionary()
-    {
-        int i = 0;
-        foreach (var questionnaire in questionnaireConfiguration.questionnaires)
-        {
-            foreach (var item in questionnaire.questions)
-            {
-                DataStorageManager.Instance.questionnaireData.Add(i, 0);
-                i++;
-            }
-        }
-    }
+    // private void InitializeDataStorageDictionary()
+    // {
+    //     int i = 0;
+    //     foreach (var questionnaire in questionnaireConfiguration.questionnaires)
+    //     {
+    //         foreach (var item in questionnaire.questions)
+    //         {
+    //             DataStorageManager.Instance.questionnaireData.Add(i, 0);
+    //             i++;
+    //         }
+    //     }
+    // }
 
-    //ÏÈ¿´ÓĞ¼¸¸öÎÊ¾í Ã¿¸öÎÊ¾íµÄÀàĞÍ
-    //°´Ã¿¸öÎÊ¾íµÄÀàĞÍ
-    //Éú³ÉquestionPrefab,Ê¹ÆäÈ«²¿¹ÒÔÚquestionnairepannelÏÂÃæ£¬ ²¢¸øÆä´ò±êÇ© QuestionIndex, ²¢Â¼ÈëprefabÊı×é
+    //å…ˆçœ‹æœ‰å‡ ä¸ªé—®å· æ¯ä¸ªé—®å·çš„ç±»å‹
+    //æŒ‰æ¯ä¸ªé—®å·çš„ç±»å‹
+    //ç”ŸæˆquestionPrefab,ä½¿å…¶å…¨éƒ¨æŒ‚åœ¨questionnairepannelä¸‹é¢ï¼Œ å¹¶ç»™å…¶æ‰“æ ‡ç­¾ QuestionIndex, å¹¶å½•å…¥prefabæ•°ç»„
     private void LoadQuestionPrefabIntoQuestionList()
     {
         //Iterate each questionnaire
@@ -113,10 +101,6 @@ public class QuestionnaireGen : MonoBehaviour
             questionPrefab.GetComponent<QuestionPanel>().SetupPanel(qp.QuestionTitle, qp.optionPrefab,qp.options,qp.questionnaireType);
             questionPrefab.SetActive(false);
             questionPanels.Add(questionPrefab);
-
-
-           
-
         }
     }
 
@@ -152,12 +136,12 @@ public class QuestionnaireGen : MonoBehaviour
         }
     }
 
-    //´ò±êÇ©Ö®ºó ¸øÆä·ÖÒ³  ´ò·ÖÒ³±êÇ© page index
-    //µÚÒ»Ò³  µÚ¶şÒ³  µÚÈıÒ³   µÚËÄÒ³   µÚÎåÒ³   µÚÁùÒ³   µÚÆßÒ³    µÚ°ËÒ³ ...
+    //æ‰“æ ‡ç­¾ä¹‹å ç»™å…¶åˆ†é¡µ  æ‰“åˆ†é¡µæ ‡ç­¾ page index
+    //ç¬¬ä¸€é¡µ  ç¬¬äºŒé¡µ  ç¬¬ä¸‰é¡µ   ç¬¬å››é¡µ   ç¬¬äº”é¡µ   ç¬¬å…­é¡µ   ç¬¬ä¸ƒé¡µ    ç¬¬å…«é¡µ ...
 
 
-    //ÏÈ¿´µÚÒ»¸öquestionnaire
-    //Èç¹ûÊÇlikert  ÄÇÃ´
+    //å…ˆçœ‹ç¬¬ä¸€ä¸ªquestionnaire
+    //å¦‚æœæ˜¯likert  é‚£ä¹ˆ
     //
     private int currentQuestionIndex = 0;
     private int pageNumber = 1;
@@ -205,20 +189,6 @@ public class QuestionnaireGen : MonoBehaviour
 
     void ClearExistingQuestions(List<GameObject> currentPageQuestions)
     {
-        //List<GameObject> currentPageQuestions = new List<GameObject>();
-        //foreach (Transform child in questionnairePanel)
-        //{
-        //    if (child.gameObject.activeSelf)
-        //    {
-        //        // If active, add it to the list
-        //        currentPageQuestions.Add(child.gameObject);
-
-        //        child.gameObject.SetActive(false);
-        //    }
-        //}
-
-        //return currentPageQuestions;
-
         foreach (var item in currentPageQuestions)
         {
             item.SetActive(false);
@@ -243,32 +213,29 @@ public class QuestionnaireGen : MonoBehaviour
     void  NextButtonPressed()
     {
         List<GameObject> currentPageQuestions = GetExistingQuestions();
-        ////²é¿´µ±Ç°Ò³ÃæÎÊÌâÊÇ·ñÈ«²¿¹´Ñ¡
-        foreach (var item in currentPageQuestions)
-        {
-            if (item.GetComponent<QuestionPanel>().OptionDictionairy.All(kvp => kvp.Value == 0))
-            {
-                // If not, log a message indicating an action needs to be taken
-                Debug.Log("Action needs to be done");
-                // Return from the function if you need to terminate its execution here
-                return;
-            }
-        }
 
-        //Çå³ıµ±Ç°Ò³ÃæÏÔÊ¾µÄÎÊÌâ
+        //æŸ¥çœ‹æ˜¯å¦å®Œæˆæ‰€æœ‰é—®é¢˜
+        if (!areAllQuestionsCompleted(currentPageQuestions))
+        {
+            WarnUnansweredQuestion(currentPageQuestions);
+            return;
+        }
+        
+
+        //æ¸…é™¤å½“å‰é¡µé¢æ˜¾ç¤ºçš„é—®é¢˜
         ClearExistingQuestions(currentPageQuestions);
 
-        //¿´ÏÂÒ»Ò³ÊÇ·ñÎª×îºóÒ»Ò³£¬Èç¹ûÊÇ×îºóÒ»Ò³ÄÇÃ´Ôò¿ÉÒÔÌá½»
+        //çœ‹ä¸‹ä¸€é¡µæ˜¯å¦ä¸ºæœ€åä¸€é¡µï¼Œå¦‚æœæ˜¯æœ€åä¸€é¡µé‚£ä¹ˆåˆ™å¯ä»¥æäº¤
         int nextPageNumber= ++currentPage;
         if (nextPageNumber==pageNumber)
         {
-            //±ä submissionbutton
+            //å˜ submissionbutton
             nextButton.gameObject.SetActive(false);
             submitButton.gameObject.SetActive(true);
            // return;
         }
 
-        //°ÑÏÂÒ»Ò³µÄÎÊÌâ¼¤»î
+        //æŠŠä¸‹ä¸€é¡µçš„é—®é¢˜æ¿€æ´»
         foreach (var item in questionPanels)
         {
             if (item.GetComponent<QuestionPanel>().PageIndex == nextPageNumber)
@@ -277,31 +244,89 @@ public class QuestionnaireGen : MonoBehaviour
             }
         }
 
-
+        DisplayQuestionnaireCompletionInstruction(currentPage);
         Debug.Log(currentPage);
 
     }
 
+    bool areAllQuestionsCompleted(List<GameObject> currentPageQuestions){
+                ////æŸ¥çœ‹å½“å‰é¡µé¢é—®é¢˜æ˜¯å¦å…¨éƒ¨å‹¾é€‰
+        foreach (var item in currentPageQuestions)
+        {
+            if (item.GetComponent<QuestionPanel>().OptionDictionairy.All(kvp => kvp.Value == 0))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    void WarnUnansweredQuestion(List<GameObject> currentPageQuestions){
+        
+        List<GameObject> unAnsweredQuestions=new List<GameObject>();
+
+        foreach (var item in currentPageQuestions)
+        {
+            if (item.GetComponent<QuestionPanel>().OptionDictionairy.All(kvp => kvp.Value == 0))
+            {
+                unAnsweredQuestions.Add(item);
+            }
+        }
+        
+        foreach (var item in unAnsweredQuestions)
+        {
+            var questionTitle=item.transform.Find("Title/QuestionTitle").gameObject.GetComponent<TextMeshProUGUI>();
+            var defaultColor=item.transform.Find("Title/QuestionTitle").gameObject.GetComponent<TextMeshProUGUI>().color;
+            StartCoroutine(FlashTitleColor(questionTitle, defaultColor));
+        }
+
+    }
+
+    IEnumerator FlashTitleColor(TextMeshProUGUI questionTitle, Color defaultColor)
+    {
+        // Change color to red
+        yield return StartCoroutine(TransitionColor(questionTitle,defaultColor, flashColorForUnansweredQuestion, flashDuration));
+        // Transition back to default color
+        yield return StartCoroutine(TransitionColor(questionTitle,flashColorForUnansweredQuestion, defaultColor, flashDuration));
+        // Transition to red again
+        yield return StartCoroutine(TransitionColor(questionTitle,defaultColor, flashColorForUnansweredQuestion, flashDuration));
+        // Transition back to default color
+        yield return StartCoroutine(TransitionColor(questionTitle,flashColorForUnansweredQuestion, defaultColor, flashDuration));
+    }
+
+    IEnumerator TransitionColor(TextMeshProUGUI questionTitle, Color startColor, Color endColor, float duration)
+    {
+        float time = 0;
+        while (time < duration)
+        {
+            questionTitle.color = Color.Lerp(startColor, endColor, time / duration);
+            time += Time.deltaTime;
+            yield return null; // Wait until next frame
+        }
+        questionTitle.color = endColor; // Ensure final color is set
+    }
+
     void PreviousButtonPressed()
     {
-        //Èç¹ûµ±Ç°ÒÑ¾­ÊÇµÚÒ»Ò³ÁË£¬ÄÇÃ´currentPage»¹±£³ÖÔÚµÚÒ»Ò³£¬·µ»Ø´Ë·½·¨¡£
+        //å¦‚æœå½“å‰å·²ç»æ˜¯ç¬¬ä¸€é¡µäº†ï¼Œé‚£ä¹ˆcurrentPageè¿˜ä¿æŒåœ¨ç¬¬ä¸€é¡µï¼Œè¿”å›æ­¤æ–¹æ³•ã€‚
         if (currentPage == 1)
         {
             return;
         }
 
         nextButton.gameObject.SetActive(true);
-        //Èç¹ûµ±Ç°Ò³ÃæÊÇ×îºóÒ»Ò³£¬ÄÇÃ´Òş²ØÌá½»°´Å¥
+        //å¦‚æœå½“å‰é¡µé¢æ˜¯æœ€åä¸€é¡µï¼Œé‚£ä¹ˆéšè—æäº¤æŒ‰é’®
         if (currentPage==pageNumber)
         {
             submitButton.gameObject.SetActive(false);
         }
 
-        //Çå³ıµ±Ç°Ò³ÃæÏÔÊ¾µÄÎÊÌâ
+        //æ¸…é™¤å½“å‰é¡µé¢æ˜¾ç¤ºçš„é—®é¢˜
         ClearExistingQuestions(GetExistingQuestions());
         currentPage--;
 
-        //°ÑÉÏÒ»Ò³µÄÎÊÌâ¼¤»î
+        //æŠŠä¸Šä¸€é¡µçš„é—®é¢˜æ¿€æ´»
         foreach (var item in questionPanels)
             {
                 if (item.GetComponent<QuestionPanel>().PageIndex == currentPage)
@@ -309,25 +334,77 @@ public class QuestionnaireGen : MonoBehaviour
                     item.SetActive(true);
                 }
             }
+        
+        DisplayQuestionnaireCompletionInstruction(currentPage);
         Debug.Log(currentPage);
 
     }
 
     void SubmitButtonPressed()
     {
-        DataStorageManager dataStorageManager = DataStorageManager.Instance;
-        dataStorageManager.PrintAllQuestionnaireResults(questionPanels);
+        List<GameObject> currentPageQuestions = GetExistingQuestions();
+       if (!areAllQuestionsCompleted(currentPageQuestions))
+        {
+            WarnUnansweredQuestion(currentPageQuestions);
+            return;
+        }
+
+       // DataStorageManager dataStorageManager = DataStorageManager.Instance;
+        //dataStorageManager.PrintAllQuestionnaireResults(questionPanels);
+        
+        //è½¬åŒ–æ•°æ®
+        DataExporter.ExportData(questionPanels);
     }
 
     void DisplayFirstPageQuestions()
-    {
+    {       
         foreach (var item in questionPanels)
         {
             if (item.GetComponent<QuestionPanel>().PageIndex == 1)
             {
                 item.SetActive(true);
+
             }
         }
 
+        QuestionnaireType type=questionnaireConfiguration.questionnaires[0].type;
+        DisplayQuestionnaireCompletionInstruction(1);
+    }
+
+    void DisplayQuestionnaireCompletionInstruction(int pageNumber){
+        
+        string instruction="";
+        QuestionnaireType type=questionnaireConfiguration.questionnaires[0].type;
+
+        foreach (var item in questionPanels)
+        {
+            if (item.GetComponent<QuestionPanel>().PageIndex == pageNumber)
+            {
+                type=item.GetComponent<QuestionPanel>().questionnaireType;
+                break;
+            }
+        }
+
+            switch (type)
+        {
+            case QuestionnaireType.Likert:
+                instruction="Please rate each statement by selecting one option.";
+                //return "Please rate each statement by selecting one option.";
+                break;
+            case QuestionnaireType.SingleSelect:
+                instruction="Please choose one option for each statement.";
+                //return "Please choose one option for each statement.";
+                break;
+            case QuestionnaireType.MultiSelect:
+                instruction="Please select all options that apply to you for each statement.";
+                //return "Please select all options that apply to you for each statement.";
+                break;
+            default:
+                instruction="Welcome!";
+                break;
+                //return null;
+        }
+
+        questionnaire_Completion_Instruction.gameObject.GetComponent<TextMeshProUGUI>().text=instruction;
     }
 }

@@ -50,7 +50,7 @@ public class DataStorageManager : MonoBehaviour
                 {
                     if (option.Value==1)
                     {
-                        Debug.Log($"Option Selected: {option}");
+                        Debug.Log($"Option Selected: {option.Key}");
                     }
                 }
             }

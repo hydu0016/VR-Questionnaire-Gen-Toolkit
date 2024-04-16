@@ -16,65 +16,56 @@ MonoBehaviour:
   - QuestionnaireTitle: PANAS
     type: 0
     questions:
-    - questionTitle: asdasda
+    - questionTitle: Do you like Research ?
       options:
-      - as
-      - a
-      - a
-    - questionTitle: asdasd
+      - I feel like they are new
+      - I feel like they are new
+      - I feel like they are new
+    - questionTitle: Do you like Research ?
       options:
-      - asda
-      - asda
-    - questionTitle: asdasd
+      - Strongly No
+      - Mediate
+      - Strongly Yes
+    - questionTitle: Do you like Research ?
       options:
-      - asd
-    - questionTitle: asdasdas
-      options:
-      - asdasds
-    - questionTitle: asdasdasd
-      options:
-      - asdasdasd
-  - QuestionnaireTitle: Movement Realism
+      - Strongly No
+      - Mediate
+      - Strongly Yes
+  - QuestionnaireTitle: Decision
     type: 1
     questions:
-    - questionTitle: asdasda
+    - questionTitle: Do you think children is safe
       options:
-      - as
-      - a
-      - a
-    - questionTitle: asdasd
+      - Safe
+      - Not Safe
+    - questionTitle: Any Action needed?
       options:
-      - asda
-      - asda
-    - questionTitle: asdasd
+      - No
+      - Report to School
+      - Report to Police
+    - questionTitle: Make visit regularly?
       options:
-      - asd
-    - questionTitle: asdasdas
-      options:
-      - asdasds
-    - questionTitle: asdasdasd
-      options:
-      - asdasdasd
-  - QuestionnaireTitle: Visual Realism
+      - Daily
+      - Weekly
+      - Monthly
+  - QuestionnaireTitle: Cancel Menbersip Reason
     type: 2
     questions:
-    - questionTitle: asdasda
+    - questionTitle: Where did you know us
       options:
-      - as
-      - a
-      - a
-    - questionTitle: asdasd
+      - Twitter
+      - Youtube
+      - Instagram
+      - Facebook
+      - Others
+    - questionTitle: Why are you leaving us
       options:
-      - asda
-      - asda
-    - questionTitle: asdasd
+      - Too expensive
+      - UI Design is not good
+      - UI Design is not good
+    - questionTitle: How can I improved
       options:
-      - asd
-    - questionTitle: asdasdas
-      options:
-      - asdasds
-    - questionTitle: asdasdasd
-      options:
-      - asdasdasd
-      - asdasda
-      - adasda
+      - Decrees membership fees
+      - Increase student discount
+      - Add advertisment
+      - Less marketing email

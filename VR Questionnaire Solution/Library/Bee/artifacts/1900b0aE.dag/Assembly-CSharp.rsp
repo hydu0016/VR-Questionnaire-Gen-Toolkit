@@ -355,6 +355,7 @@
 -analyzer:"D:/Application/Unity/2022.3.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/BasePanel.cs"
 "Assets/Scripts/New/BaseQuestionPanel.cs"
+"Assets/Scripts/New/CSVManager.cs"
 "Assets/Scripts/New/DataStorageManager.cs"
 "Assets/Scripts/New/QuestionnaireConfiguration.cs"
 "Assets/Scripts/New/QuestionnaireGen.cs"
