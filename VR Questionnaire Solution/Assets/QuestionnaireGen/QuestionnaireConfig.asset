@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4257bea988948364dbde822f4f3e03e0, type: 3}
+  m_Name: QuestionnaireConfig
+  m_EditorClassIdentifier: 
+  questionnaires:
+  - QuestionnaireTitle: Likert Scale
+    type: 0
+    questions:
+    - questionTitle: Do you like Research ?
+      options:
+      - I feel like they are new
+      - I feel like they are new
+      - I feel like they are new
+    - questionTitle: Do you like Research ?
+      options:
+      - I feel like they are new
+      - I feel like they are new
+      - I feel like they are new
+    - questionTitle: Do you like Research ?
+      options:
+      - I feel like they are new
+      - I feel like they are new
+      - I feel like they are new
+  - QuestionnaireTitle: Single Selection
+    type: 1
+    questions:
+    - questionTitle: Do you think children is safe
+      options:
+      - Safe
+      - Not Safe
+      - Not Safe
+      - Not Safe
+      - Not Safe
+    - questionTitle: Any Action needed?
+      options:
+      - No
+      - Report to School
+      - Report to Police
+    - questionTitle: Make visit regularly?
+      options:
+      - Daily
+      - Weekly
+      - Monthly
+  - QuestionnaireTitle: Multiple Selection
+    type: 2
+    questions:
+    - questionTitle: Where did you know us
+      options:
+      - Twitter
+      - Youtube
+      - Instagram
+      - Facebook
+      - Others
+    - questionTitle: Why are you leaving us
+      options:
+      - Too expensive
+      - UI Design is not good
+      - UI Design is not good
+    - questionTitle: How can I improved
+      options:
+      - Decrees membership fees
+      - Increase student discount
+      - Add advertisment
+      - Less marketing email
