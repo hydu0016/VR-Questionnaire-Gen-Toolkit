@@ -16,9 +16,9 @@
 2. Make sure your scene has an Event System. If it doesn't, you can add one by right-clicking in the Hierarchy, then selecting UI > Event System.
 3. Use an existing QuestionnaireConfig Scriptable Object in the QuestionaireGen folder.
 ![image](https://github.com/hydu0016/VR-Questionnaire-Gen-Toolkit/assets/95190616/b83bd53a-503c-466a-bf1e-b1f12d160f2b)
-1. Alternatively, you can create your own `QuestionnaireConfig` Scriptable Object
+4. Alternatively, you can create your own `QuestionnaireConfig` Scriptable Object
 ![image](https://github.com/hydu0016/VR-Questionnaire-Gen-Toolkit/assets/95190616/449a1ff9-c7c1-4506-a6c7-221d7607cb4c)
-2. After creating your own QuestionnaireConfig Scriptable Object, drag it to the QuestionnaireGen component attached to the "Canvas" prefab in your scene.
+5. After creating your own QuestionnaireConfig Scriptable Object, drag it to the QuestionnaireGen component attached to the "Canvas" prefab in your scene.
 ![image](https://github.com/hydu0016/VR-Questionnaire-Gen-Toolkit/assets/95190616/51a68884-5314-44dd-99d3-bc451c6bba8a)
 
 ### Configuring Questionnaires
