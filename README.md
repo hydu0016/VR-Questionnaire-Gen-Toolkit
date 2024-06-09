@@ -2,7 +2,7 @@
 
 
 ## Running the Demo
-1. Download the project.
+1. Download the project.  
 2. Open Unity: Simply hit the 'Run' button in Unity to launch the example scene and see the questionnaire toolkit.
 
 ## Creating Your Own Questionnaire
