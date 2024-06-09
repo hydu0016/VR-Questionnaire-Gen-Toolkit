@@ -7,8 +7,8 @@
 
 ## Creating Your Own Questionnaire
 ### Export Unity Package
-1.Export the example scene as a Unity package from the project you downloaded. Make sure to include all dependencies.
-2.Open the Unity package you just exported in your own project.
+1. Export the example scene as a Unity package from the project you downloaded. Make sure to include all dependencies.
+2. Open the Unity package you just exported in your own project.
 
 ### Setup
 1. Drag and drop the Canvas prefab from the prefab folder in the QuestionaireGen folder into your scene to set up the questionnaire interface.
@@ -35,7 +35,7 @@
 4. Click the `[Validate Questionnaires]` button to check for any configuration errors.
 
 ### Run it
-1.If no errors are found, press `Play` in Unity to preview the questionnaire.
+1. If no errors are found, press `Play` in Unity to preview the questionnaire.
 
 ## Making it VR 
 1. Set the Canvas Render Mode to World Space to ensure it works correctly in a VR environment.
