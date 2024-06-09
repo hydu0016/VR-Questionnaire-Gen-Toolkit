@@ -37,6 +37,21 @@
 ### Run it
 1. If no errors are found, press `Play` in Unity to preview the questionnaire.
 
+### Get Data
+The Questionnaire data will be stored at:
+1. Windows:  
+C:\Users\<Username>\AppData\LocalLow\<CompanyName>\<ProductName>  
+2. macOS:  
+/Users/<Username>/Library/Application Support/<CompanyName>/<ProductName>  
+3. Linux:  
+~/.config/unity3d/<CompanyName>/<ProductName>  
+4. iOS:  
+<Application_Home>/Documents  
+Example: /var/mobile/Containers/Data/Application/<GUID>/Documents  
+5. Android:  
+/storage/emulated/0/Android/data/<PackageName>/files  
+
+
 ## Making it VR 
 1. Set the Canvas Render Mode to World Space to ensure it works correctly in a VR environment.
 3. You need to enable VR raycasting. Unity's XR Interaction Toolkit provides a good solution for this.
