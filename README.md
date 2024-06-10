@@ -37,7 +37,7 @@
 ### Run it
 1. If no errors are found, press `Play` in Unity to preview the questionnaire.
 
-### Get Data
+### Get data
 The Questionnaire data will be stored at:
 1. Windows:  
 C:\Users\<Username>\AppData\LocalLow\<CompanyName>\<ProductName>  
