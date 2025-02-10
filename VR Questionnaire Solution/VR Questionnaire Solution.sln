@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.CollabProxy.Editor", "Unity.CollabProxy.Editor.csproj", "{0fffac01-9e27-1c27-2589-7353edc999c3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0e38945c-a3c8-a76a-3e35-c5e8aa75d79b}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,8 @@ Global
 		{9e1fd0bc-3899-798e-a3db-5a503b224907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0fffac01-9e27-1c27-2589-7353edc999c3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0fffac01-9e27-1c27-2589-7353edc999c3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0e38945c-a3c8-a76a-3e35-c5e8aa75d79b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0e38945c-a3c8-a76a-3e35-c5e8aa75d79b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

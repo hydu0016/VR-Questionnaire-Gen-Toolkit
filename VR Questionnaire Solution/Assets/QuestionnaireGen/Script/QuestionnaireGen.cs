@@ -44,8 +44,6 @@ public class QuestionnaireGen : MonoBehaviour
 
     void Start()
     {       
-        //string username = Environment.UserName;
-        //Debug.Log("Current User: " + username);
 
         questionnaire_Completion_Instruction=transform.Find("Base/Head/Head Title").gameObject;
         nextButton=transform.Find("Base/Button_Next").gameObject.GetComponent<Button>();
@@ -53,9 +51,6 @@ public class QuestionnaireGen : MonoBehaviour
         submitButton=transform.Find("Base/Button_Submit").gameObject.GetComponent<Button>();
         questionnairePanel=transform.Find("Base/QuestionDisplayArea").gameObject.transform;
 
-        //LoadQuestionPrefabIntoQuestionList();  //GENERATE all questions
-        //AssignPageNumberToQuestionPrefab();   // Assign page numbers to questions
-       // test();
 
        AssignValue2QuestionPrefabs(newQuesConfig);
         AssignPageNumbers();
@@ -69,52 +64,8 @@ public class QuestionnaireGen : MonoBehaviour
         previousButton.gameObject.SetActive(true); // Initially hide previous button
     }
 
-    private void test()
-    {
-        foreach (var item in questionPanels)
-        {
-            Debug.Log("总Index" + item.GetComponent<QuestionPanel>().QuestionIndex + "所属问卷编号" + item.GetComponent<QuestionPanel>().QuestionnaireIndex + "所属问卷类型" + item.GetComponent<QuestionPanel>().questionType + "所属页码" + item.GetComponent<QuestionPanel>().PageIndex);
-        }
-
-    }
 
 
-    //Iterate questionnaires list
-    // private void LoadQuestionPrefabIntoQuestionList()
-    // {
-    //     //Iterate each questionnaire
-    //     for (int i = 0; i < questionnaireConfiguration.questionnaires.Count; i++)
-    //     {
-    //         //iterate each question in this questionnaire
-    //         AssignValueToQuestionPrefab(questionnaireConfiguration.questionnaires[i]);
-    //     }
-    // }
-
-
-    // //Add info to each questions in each questionnaires
-    // private void AssignValueToQuestionPrefab(Questionnaire questionnaire)
-    // {
-        
-    //     foreach (var question in questionnaire.questions)
-    //     {
-
-    //         GameObject questionPrefab = Instantiate(GetQuestionPrefabForQuestionnaireType(questionnaire.type), questionnairePanel);////Create a question prefab object under questionnairePanel
-    //         QuestionPanel qp = questionPrefab.GetComponent<QuestionPanel>(); //Get component of QuestionPrefab
-    //         qp.QuestionIndex = questionNumber++;
-    //         qp.QuestionnaireIndex = questionnaireConfiguration.questionnaires.IndexOf(questionnaire)+1;
-    //         qp.questionnaireType = questionnaire.type;
-    //         qp.QuestionTitle = question.questionTitle;
-    //         qp.optionPrefab = GetOptionPrefabForQuestionnaireType(questionnaire.type);
-    //         qp.options = question.options;
-
-            
-    //         questionPrefab.GetComponent<QuestionPanel>().SetupPanel(qp.QuestionTitle, qp.optionPrefab,qp.options,qp.questionnaireType);
-    //         questionPrefab.SetActive(false);
-    //         questionPanels.Add(questionPrefab);
-    //     }
-    // }
-
-//newnew
     private void AssignValue2QuestionPrefabs(NewQuesConfig newQuesConfig){
         List<QuestionnaireQuestion> questions = new List<QuestionnaireQuestion>();
         foreach (var item in newQuesConfig.questions)
@@ -253,78 +204,6 @@ public class QuestionnaireGen : MonoBehaviour
                 return 1;
         }
     }
-
-
-    // private int currentQuestionIndex = 0;
-    // private int pageNumber = 1;
-
-    // private int tmp = 0;
-    // private int maxAssignedPage = 1; // Stores the highest page index that actually contains questions
-
-    // private void AssignPageNumberToQuestionPrefab()
-    // {
-    //     maxAssignedPage = 1; // Reset before assigning new page numbers
-
-    //     for (int i = 0; i < questionnaireConfiguration.questionnaires.Count; i++)
-    //     {
-    //         int questionsPerPage;
-
-    //         switch (questionnaireConfiguration.questionnaires[i].type)
-    //         {
-    //             case QuestionType.Likert:
-    //             case QuestionType.InputField:
-    //             case QuestionType.DropDown:
-    //                 questionsPerPage = 3;
-    //                 break;
-    //             case QuestionType.Slider_LeftStart:
-    //             case QuestionType.Slider_MidStart:
-    //                 questionsPerPage = 2;
-    //                 break;
-    //             case QuestionType.Consent:
-    //                 questionsPerPage = 1;
-    //                 break;
-    //             default:
-    //                 questionsPerPage = 1;
-    //                 break;
-    //         }
-
-    //         for (int j = 0; j < questionnaireConfiguration.questionnaires[i].questions.Count; j++)
-    //         {
-    //             if (currentQuestionIndex < questionPanels.Count)
-    //             {
-    //                 questionPanels[currentQuestionIndex].GetComponent<QuestionPanel>().PageIndex = pageNumber;
-    //                 maxAssignedPage = Math.Max(maxAssignedPage, pageNumber); // Track highest used page
-    //             }
-
-    //             tmp++;
-
-    //             if (tmp == questionsPerPage)
-    //             {
-    //                 pageNumber++;
-    //                 tmp = 0;
-    //             }
-
-    //             currentQuestionIndex++;
-    //         }
-
-    //         if (tmp > 0) 
-    //         {
-    //             pageNumber++;
-    //             maxAssignedPage = Math.Max(maxAssignedPage, pageNumber); // Update maxAssignedPage
-    //         }
-
-    //         tmp = 0;
-    //     }
-
-    //     if (questionPanels.Count > 0)
-    //     {
-    //         maxAssignedPage = Math.Max(maxAssignedPage, questionPanels.Last().GetComponent<QuestionPanel>().PageIndex);
-    //     }
-    // }
-
-
-
-
 
 
     
@@ -504,7 +383,7 @@ public class QuestionnaireGen : MonoBehaviour
             return;
         }       
         //Export Data
-        DataExporter.ExportData(questionPanels);
+        DataExporter.ExportData(questionPanels, newQuesConfig.ExportedCsvPath);
         //Display goodbye UI
         DisplayCloseUI();
     }
