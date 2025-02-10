@@ -15,27 +15,44 @@ MonoBehaviour:
   ExportedCsvPath: /Users/haoyangdu/untitled folder
   questions:
   - questionType: 7
-    questionTitle: Consent
+    questionTitle: 'Please read the following statements carefully. By selecting
+      "I agree" you confirm that you:'
     options:
     - a
     - b
     - c
     - d
-    consentContent: asdasdasdadas
+    consentContent: "1. Are over 18 years old.\n2. Have no diagnosis of motion sickness,
+      significant visual impairments, or hearing impairments, as the study involves
+      interacting with detailed virtual environments and audio cues.\n3. Have read
+      and understood the participant information sheet.\n4. Understand that the experiment
+      will be conducted in English.\n5. Understand that all data provided will be
+      pseudonymous.\n6. I understand that all data I submit will be securely stored
+      and archived.\n7. Agree to participate in this research project conducted at
+      TU Dublin.\n8. Have received sufficient information about this research project
+      and understand its purpose and your role.\n9. Consent to the use of your submitted
+      questionnaires for analysis purposes.\n10. Acknowledge your right to request
+      deletion of your data at any time.\n11. Understand your right to withdraw from
+      participation at any stage.\n12. Consent to being added to a contact list for
+      potential future research, with your information being kept for one year.\n13.
+      Consent to taking part in this research study.  \n"
     leftLabel: 0
     rightLabel: 100
   - questionType: 0
-    questionTitle: english
+    questionTitle: This is a Likert-Scale question
     options:
-    - a
-    - b
-    - c
-    - d
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
     consentContent: 
     leftLabel: 
     rightLabel: 
   - questionType: 3
-    questionTitle: Slider_Left
+    questionTitle: This is a left start slider
     options:
     - a
     - b
@@ -45,7 +62,7 @@ MonoBehaviour:
     leftLabel: 0
     rightLabel: 1
   - questionType: 4
-    questionTitle: Slider_Mid
+    questionTitle: This is a middle start silder
     options:
     - a
     - b
@@ -53,9 +70,9 @@ MonoBehaviour:
     - d
     consentContent: 
     leftLabel: 0
-    rightLabel: 100
+    rightLabel: 1
   - questionType: 5
-    questionTitle: InputField
+    questionTitle: This is an input field
     options:
     - a
     - b
@@ -65,7 +82,7 @@ MonoBehaviour:
     leftLabel: 0
     rightLabel: 100
   - questionType: 6
-    questionTitle: DropDpwn
+    questionTitle: This is a drop down question
     options:
     - a
     - b

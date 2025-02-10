@@ -15,8 +15,14 @@ MonoBehaviour:
   ExportedCsvPath: 
   questions:
   - questionType: 0
-    questionTitle: 
+    questionTitle: This is a Likert Question
     options: []
     consentContent: 
     leftLabel: 
     rightLabel: 
+  - questionType: 3
+    questionTitle: This is a Likert Question
+    options: []
+    consentContent: 
+    leftLabel: 0
+    rightLabel: 100
