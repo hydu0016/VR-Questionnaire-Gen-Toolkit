@@ -27,13 +27,7 @@ public class DataStorageManager : MonoBehaviour
     public Dictionary<int, int> questionnaireData = new Dictionary<int, int>();
     public int questionIndex = 0;
 
-    // Assuming you have a way to reference all GameObjects
-    public List<GameObject> questionnaires;
 
-    private void Start()
-    {
-        PrintAllQuestionnaireResults(questionnaires);
-    }
 
     public  void PrintAllQuestionnaireResults(List<GameObject> questions)
     {

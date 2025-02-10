@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "VR Questionnaire Solution.sln"
+    "dotnet.defaultSolution": "VR Questionnaire Solution.sln",
+    "dotnet.preferCSharpExtension": true
 }
