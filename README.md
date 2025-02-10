@@ -22,34 +22,51 @@
 ![image](https://github.com/hydu0016/VR-Questionnaire-Gen-Toolkit/assets/95190616/51a68884-5314-44dd-99d3-bc451c6bba8a)
 
 ### Configuring Questionnaires
-![image](https://github.com/hydu0016/VR-Questionnaire-Gen-Toolkit/assets/95190616/e812b5e2-9a75-49b1-949c-0b5018361297)
+<img width="466" alt="image" src="https://github.com/user-attachments/assets/7794198c-076b-4f95-852f-c2120803064f" />
 
-1. Select the type of questionnaire you want to create within the `QuestionnaireConfig`. The toolkit supports three types:
-   - Likert-scale
-   - Single selection
-   - Multiple selection
-2. Add questions and configure the options for each type:
-   - Up to 12 options for Likert-scale questions.
-   - Up to 8 options for Single and Multiple selection questions.
-3. Save your configurations by pressing `Ctrl+S`.
-4. Click the `[Validate Questionnaires]` button to check for any configuration errors.
 
-### Run it
-1. If no errors are found, press `Play` in Unity to preview the questionnaire.
+This toolkit allows you to create and configure questionnaires within Unity and export the data to a CSV file.
 
-### Get data
-The Questionnaire data will be stored at:
-1. Windows:  
-C:\Users\<Username>\AppData\LocalLow\<CompanyName>\<ProductName>  
-2. macOS:  
-/Users/<Username>/Library/Application Support/<CompanyName>/<ProductName>  
-3. Linux:  
-~/.config/unity3d/<CompanyName>/<ProductName>  
-4. iOS:  
-<Application_Home>/Documents  
-Example: /var/mobile/Containers/Data/Application/<GUID>/Documents  
-5. Android:  
-/storage/emulated/0/Android/data/<PackageName>/files  
+
+**1. Setting Up the CSV Export**
+- Specify the file path where the exported CSV file will be saved.
+
+
+**2. Creating Questions**
+You can create different types of questions within `QuestionnaireConfig`. The supported types are:
+- **Consent Form** – Requires consent content.
+- **Likert Scale** – Allows up to 12 options.
+- **Single Selection** – Allows up to 8 options.
+- **Multiple Selection** – Allows up to 8 options.
+- **Dropdown** – Requires a set of selectable options.
+- **Input Field** – Allows users to enter free-text responses.
+- **Slider (Left Start)** – Requires left and right labels.
+- **Slider (Mid Start)** – Requires left and right labels.
+
+
+
+**3. Configuring Questions**
+1. Add a question and set its type.
+2. Provide a **title/question text** for every question.
+3. Configure additional fields based on the question type:
+   - **Likert, Single Selection, Multiple Selection, Dropdown**: Add options (ensure they are not empty).
+   - **Consent Form**: Provide consent content.
+   - **Slider (Left Start & Mid Start)**: Define left and right labels.
+4. Ensure that required fields are correctly filled.
+
+
+**4. Saving and Validating the Configuration**
+- Save your configurations by pressing **`Ctrl+S`**.
+- Click the **`[Validate]`** button to check for missing or incorrect configurations.
+- If validation errors are found, follow the error messages to fix the issues.
+
+
+**5. Running the Questionnaire**
+- Once validation is successful, press **`Play`** in Unity to preview the questionnaire.
+- The configured questions will be displayed based on the selected settings.
+- Responses will be recorded and stored in the specified CSV file.
+
+
 
 
 ## Making it VR 
@@ -60,3 +77,30 @@ Example: /var/mobile/Containers/Data/Application/<GUID>/Documents
 6. Add the XR UI Input Module component to the Event System:
 6. Run your scene and test the interactions. The XR Ray Interactor should allow you to point and interact with the Canvas elements in VR.
 
+
+
+## Example:
+
+**Consent Form**  
+<img src="https://github.com/user-attachments/assets/0f0d4d28-fb4f-48e4-971d-76aa79dce923" width="500"/>
+
+**Likert Scale**  
+<img src="https://github.com/user-attachments/assets/27be75e1-1b3c-48e2-a64a-25eed6f3e7ce" width="500"/>
+
+**Slider (Left Start)**  
+<img src="https://github.com/user-attachments/assets/0f7ea646-82f5-4585-8bf5-66c9b5a5becc" width="500"/>
+
+**Slider (Mid Start)**  
+<img src="https://github.com/user-attachments/assets/c3ace51d-1364-481b-a514-24322141a4b2" width="500"/>
+
+**Input Field**  
+<img src="https://github.com/user-attachments/assets/b41a645d-cc9b-4547-b1fd-87f6882c1591" width="500"/>
+
+**Dropdown**  
+<img src="https://github.com/user-attachments/assets/132c63ae-7511-4365-875c-bbe70d81369f" width="500"/>
+
+
+
+
+
+ 
